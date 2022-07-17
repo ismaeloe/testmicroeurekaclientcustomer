@@ -1,11 +1,11 @@
 package mx.com.ismaeloe.customer.controller;
 
 import mx.com.ismaeloe.customer.service.CustomerService;
-import mx.com.ismaeloe.customer.repository.entity.Customer;
-import mx.com.ismaeloe.customer.repository.entity.Region;
+import mx.com.ismaeloe.customer.entity.Customer;
+import mx.com.ismaeloe.customer.entity.Region;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,11 +23,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Slf4j
+//@Slf4j
 @RestController
 @RequestMapping("/customers")
 public class CustomerRest {
 
+	//Could be created with mbok.extern.slf4j.Slf4j
 	private final static Logger LOG = LoggerFactory.getLogger(CustomerRest.class);
 
 	@Autowired
@@ -66,13 +67,17 @@ public class CustomerRest {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Customer> getCustomer(@PathVariable("id") long id) {
-        LOG.info("Fetching Customer with id {}", id);
-        Customer customer = customerService.getCustomer(id);
-        if (  null == customer) {
+
+    	LOG.info("Fetching Customer with id {}", id);
+        
+    	Customer customer = customerService.getCustomer(id);
+        
+    	if (  null == customer) {
             LOG.error("Customer with id {} not found.", id);
             return  ResponseEntity.notFound().build();
         }
-        return  ResponseEntity.ok(customer);
+
+    	return  ResponseEntity.ok(customer);
     }
 
     // -------------------Create a Customer-------------------------------------------
@@ -130,14 +135,15 @@ public class CustomerRest {
                     return error;
 
                 }).collect(Collectors.toList());
-        /*
-        ErrorMessage errorMessageX = ErrorMessage.builder()
+        
+        ErrorMessage errorMessage = ErrorMessage.builder()
                 .code("01")
                 .messages(errors).build();
-        */
+        /*Using Builder
         ErrorMessage errorMessage = new ErrorMessage();
         errorMessage.setCode("01");
         errorMessage.setMessages(errors);
+        */
         
         ObjectMapper mapper = new ObjectMapper();
         String jsonString="";

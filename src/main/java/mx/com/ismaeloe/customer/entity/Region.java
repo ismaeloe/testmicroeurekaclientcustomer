@@ -1,4 +1,4 @@
-package mx.com.ismaeloe.customer.repository.entity;
+package mx.com.ismaeloe.customer.entity;
 
 import lombok.Data;
 

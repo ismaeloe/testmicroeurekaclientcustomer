@@ -1,7 +1,7 @@
 package mx.com.ismaeloe.customer.service;
 
-import mx.com.ismaeloe.customer.repository.entity.Customer;
-import mx.com.ismaeloe.customer.repository.entity.Region;
+import mx.com.ismaeloe.customer.entity.Customer;
+import mx.com.ismaeloe.customer.entity.Region;
 
 import java.util.List;
 

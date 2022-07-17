@@ -1,8 +1,8 @@
 package mx.com.ismaeloe.customer.repository;
 
-import mx.com.ismaeloe.customer.repository.entity.Customer;
+import mx.com.ismaeloe.customer.entity.Customer;
+import mx.com.ismaeloe.customer.entity.Region;
 
-import mx.com.ismaeloe.customer.repository.entity.Region;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

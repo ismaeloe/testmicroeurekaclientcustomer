@@ -1,4 +1,4 @@
-package mx.com.ismaeloe.customer.repository.entity;
+package mx.com.ismaeloe.customer.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
@@ -9,7 +9,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.Objects;
+//import java.util.Objects;
 
 @Data
 @Entity
@@ -51,10 +51,10 @@ public class Customer implements Serializable {
 
     private String state;
 
+    /*Replace by Lombok
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -122,6 +122,7 @@ public class Customer implements Serializable {
 
 	@Override
 	public boolean equals(Object obj) {
+
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -131,6 +132,6 @@ public class Customer implements Serializable {
 		Customer other = (Customer) obj;
 		return Objects.equals(id, other.id);
 	}
-    
+	*/    
     
 }

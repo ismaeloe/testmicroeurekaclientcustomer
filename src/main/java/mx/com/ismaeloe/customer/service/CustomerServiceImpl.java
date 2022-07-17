@@ -1,8 +1,8 @@
 package mx.com.ismaeloe.customer.service;
 
 import mx.com.ismaeloe.customer.repository.CustomerRepository;
-import mx.com.ismaeloe.customer.repository.entity.Customer;
-import mx.com.ismaeloe.customer.repository.entity.Region;
+import mx.com.ismaeloe.customer.entity.Customer;
+import mx.com.ismaeloe.customer.entity.Region;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,8 +28,10 @@ public class CustomerServiceImpl  implements CustomerService {
     @Override
     public Customer createCustomer(Customer customer) {
 
-        Customer customerDB = customerRepository.findByNumberID ( customer.getNumberID () );
+        Customer customerDB = customerRepository.findByNumberID (customer.getNumberID() );
+        
         if (customerDB != null){
+        	log.warn("createCustomer Found and Not Created ={}" ,customer.getNumberID() );
             return  customerDB;
         }
 
